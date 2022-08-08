@@ -1,0 +1,17 @@
+<% if flash.present? %>
+    <% flash.each do |type, msg| %>
+    <div class="alert alert-info">
+        <%= msg %>
+    </div>
+    <% end %>
+<% end %>
+<%= render "head" %>
+<h1>Parliaaaaaex</h1>
+<p>Find me in app/views/parlament/index.html.erb</p>
+<form action="/parliament/csv" enctype="multipart/form-data" method="post">
+<fieldset>
+    <legend>Arquivo</legend>
+    <input type="file" name="csv" class="form-control"><br>
+    <input type="submit" name="Enviar" class="btn btn-primary">
+</fieldset>
+</form>
