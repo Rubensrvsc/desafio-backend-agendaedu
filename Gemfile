@@ -19,6 +19,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'sassc', '~> 2.1.0'
 gem 'dry-monads'
+gem 'dry-auto_inject'
+gem 'kaminari'
 gem 'csv'
 # Use Redis adapter to run Action Cable in production
 gem 'redis'
