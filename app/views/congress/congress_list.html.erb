@@ -1,19 +1,25 @@
 <%= render "head" %>
 
 <div>
+<h1>Lista de Palarmentares</h1>
 <table class="table table-striped table-bordered table-hover">
     <thead>
         <tr>
             <th>Nome Parlamentar
             </th>
+            <th>Ver detalhes</th>
         </tr>
     </thead>
     <tbody>
         <% @congresspeople.each do |congress| %>
         <tr>
             <td><%= congress.txNomeParlamentar  %></td>
+            <td><%= link_to "Link", "/details/#{congress.id}", class: "nav-link" %></td>
         </tr>
         <% end %>
     </tbody>
 </table>
+<div class="paginate_congresspeople">
+    <%= paginate @congresspeople %>
+</div>
 </div>
