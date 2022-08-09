@@ -17,7 +17,7 @@ module Business
             count = 0
             rows = []
             CSV.foreach(csv_path, "r:bom|utf-8", { headers: true, col_sep: ';' }) do |row|
-                break if count == 10
+                # break if count == 10
                 if row["sgUF"] == "PI" 
                     count = count + 1
                     rows << row.to_h
@@ -29,7 +29,7 @@ module Business
 
         def register_congressperson(rows)
             rows.each do |row|
-                Congressperson.create(
+                Congressperson.where(
                     txNomeParlamentar: row["txNomeParlamentar"],
                     cpf: row["cpf"],
                     ideCadastro: row["ideCadastro"].to_i,
@@ -38,7 +38,7 @@ module Business
                     sgPartido: row["sgPartido"],
                     codLegislatura: row["codLegislatura"].to_i,
                     nuLegislatura: row["nuLegislatura"].to_i
-                )
+                ).first_or_create
             end
             Success(rows)
         end
