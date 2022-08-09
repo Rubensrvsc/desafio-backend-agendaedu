@@ -10,4 +10,8 @@ class CongressController < ApplicationController
     flash[:alert] = "Estamos processando as informações"
     render "index"
   end
+
+  def congress_list
+    @congresspeople = Congressperson.all
+  end
 end

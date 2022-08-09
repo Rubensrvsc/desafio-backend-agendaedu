@@ -1,0 +1,19 @@
+<%= render "head" %>
+
+<div>
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Nome Parlamentar
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @congresspeople.each do |congress| %>
+        <tr>
+            <td><%= congress.txNomeParlamentar  %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+</div>
