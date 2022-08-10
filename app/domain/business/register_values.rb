@@ -9,8 +9,9 @@ module Business
             get_rows_from_uf = yield get_validated_rows(csv_path)
             congress_person = yield register_congressperson(get_rows_from_uf)
             expenses_congressperson = yield register_expenses(congress_person)
+            deleted_csv = yield delete_csv(csv_path)
 
-            Success(congress_person)
+            Success(deleted_csv)
         end
 
         def get_validated_rows(csv_path)
@@ -50,6 +51,11 @@ module Business
                 end
             end
             Success(rows)
+        end
+
+        def delete_csv(csv_path)
+            File.delete(csv_path)
+            Success('Arquivo deletado com sucesso')
         end
 
         def create_expense(row, congressperson_id)
