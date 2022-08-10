@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Congressperson, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'testing model congressperson' do
+    let!(:congressperson) { create_list(:congressperson, 5) }
+
+    it { expect(Congressperson.count).to eq(5) }
+  end
 end
