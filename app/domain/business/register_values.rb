@@ -82,6 +82,7 @@ module Business
                 vlrRestituicao: row["vlrRestituicao"].to_f,
                 nuDeputadoId: row["nuDeputadoId"].to_i,
                 ideDocumento: row["ideDocumento"].to_i,
+                urlDocumento: row["urlDocumento"].to_s,
                 congressperson_id: congressperson_id
             )
         end
