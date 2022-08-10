@@ -17,7 +17,6 @@ module Business
             count = 0
             rows = []
             CSV.foreach(csv_path, "r:bom|utf-8", { headers: true, col_sep: ';' }) do |row|
-                # break if count == 10
                 if row["sgUF"] == "PI" 
                     count = count + 1
                     rows << row.to_h
@@ -44,10 +43,6 @@ module Business
         end
 
         def register_expenses(rows)
-            # For na linha
-            # Obtenho o parlamentar pelo ideCadastro
-            # Cadastro a expense
-            # coloco a expense no parlamentar
             rows.each do |row|
                 congressperson = Congressperson.find_by(ideCadastro: row["ideCadastro"])
                 if congressperson.present?
