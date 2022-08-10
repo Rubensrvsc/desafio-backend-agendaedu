@@ -6,19 +6,19 @@ class CongressController < ApplicationController
   end
 
   def upload_csv
-
-    if Congressperson.count > 0 || Expense.count > 0 && params[:csv].present?
+    if Congressperson.count > 0 && Expense.count > 0 && params[:csv].present?
       flash[:alert] = "Já foi importado um csv"
-    elsif params[:csv].present?
+      redirect_to action: 'index'
+    elsif Congressperson.count == 0 && Expense.count == 0 && params[:csv].present?
       ext = File.extname(params[:csv].original_filename)
       file_name = "#{SecureRandom.urlsafe_base64}#{ext}"
       path = Rails.root.join("public/uploads/files/", file_name)
 
       File.open(path, "wb") { |f| f.write(params[:csv].read) }
-      flash[:alert] = "É possível haver uma demora em completar todas as informações dos deputados"
+      flash[:alert] = "É possível haver uma demora em gravar todas as informações dos deputados, aperte f5 caso queira acompanhar o processo"
       Workers::RegisterExpenses.perform_async(path)
-    end      
-    render 'index'
+      redirect_to action: 'congress_list'
+    end
   end
 
   def congress_list
