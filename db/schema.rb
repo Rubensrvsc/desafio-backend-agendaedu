@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_08_150022) do
+ActiveRecord::Schema.define(version: 2022_08_10_121855) do
 
   create_table "congresspeople", force: :cascade do |t|
     t.string "txNomeParlamentar"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2022_08_08_150022) do
     t.integer "congressperson_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "urlDocumento"
     t.index ["congressperson_id"], name: "index_expenses_on_congressperson_id"
   end
 
