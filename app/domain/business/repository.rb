@@ -6,7 +6,7 @@ module Business
         end
 
         def sum_expenses_congressperson(congressperson_id)
-            Congressperson.find_by(id: congressperson_id).expenses.sum(:vlrLiquido)
+            Congressperson.find_by(id: congressperson_id).expenses.sum(:vlrLiquido).round(2)
         end
 
         def list_expenses(congressperson_id, page)
@@ -23,7 +23,11 @@ module Business
         end
 
         def get_max_expense(congressperson_id)
-            Congressperson.find_by(id: congressperson_id).expenses.maximum(:vlrLiquido)
+            Congressperson.find_by(id: congressperson_id).expenses.maximum(:vlrLiquido).round(2)
+        end
+
+        def name_congressperson(congressperson_id)
+            Congressperson.find_by(id: congressperson_id).txtNomeParlamentar
         end
     end
 end
