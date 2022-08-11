@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Workers::RegisterExpenses do
 
-  describe "register records" do
+  describe "#worker" do
     it "create records" do
       path = Rails.root.join('spec/upload/ano-2021.csv')
       described_class.perform_async(path)

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Business::RegisterValues do
 
-  describe 'register values' do
+  describe '#flow' do
     context 'when flow works' do
         let!(:path) { Rails.root.join('spec/upload/ano-2021.csv') }
         let!(:ext) { File.extname(path) }

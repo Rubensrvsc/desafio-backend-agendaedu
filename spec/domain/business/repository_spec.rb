@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Business::Repository do
 
-  describe 'register records' do
-    context 'test repository' do
+  describe '#repository' do
+    context '#queries' do
         let!(:congressperson) { create(:congressperson) }
         let!(:expenses) { create_list(:expense, 3, congressperson_id: congressperson.id) }
         let!(:repo) { described_class.new }
