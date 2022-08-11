@@ -143,6 +143,7 @@ GEM
     nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    pg (1.4.3)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -175,6 +176,11 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (6.0.5.1)
       actionpack (= 6.0.5.1)
       activesupport (= 6.0.5.1)
@@ -279,9 +285,11 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   kaminari
   listen (~> 3.2)
+  pg
   pry
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
+  rails_12factor
   redis
   rspec-rails (~> 3.5)
   sass-rails (>= 6)
