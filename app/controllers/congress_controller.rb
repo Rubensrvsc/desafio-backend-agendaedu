@@ -1,12 +1,12 @@
 class CongressController < ApplicationController
   skip_before_action :verify_authenticity_token
-  include Container::Import[:repo]
+  include Container::Import[:repo, :worker_register_expenses]
 
   def index
   end
 
   def upload_csv
-    if Congressperson.count > 0 && Expense.count > 0 && params[:csv].present?
+    if Congressperson.count > 0 || Expense.count > 0 && params[:csv].present?
       flash[:alert] = "Já foi importado um csv"
       redirect_to action: 'index'
     elsif Congressperson.count == 0 && Expense.count == 0 && params[:csv].present?
@@ -16,7 +16,7 @@ class CongressController < ApplicationController
 
       File.open(path, "wb") { |f| f.write(params[:csv].read) }
       flash[:alert] = "É possível haver uma demora em gravar todas as informações dos deputados, aperte f5 caso queira acompanhar o processo"
-      Workers::RegisterExpenses.perform_async(path)
+      worker_register_expenses.perform_async(path)
       redirect_to action: 'congress_list'
     end
   end
@@ -30,5 +30,6 @@ class CongressController < ApplicationController
     @list_expenses = repo.list_expenses(params[:id].to_i, params[:page])
     @ide_cadastro = repo.get_ide_Cadastro(params[:id].to_i)
     @max_expense = repo.get_max_expense(params[:id].to_i)
+    @name_congressperson = repo.name_congressperson(params[:id].to_i)
   end
 end
