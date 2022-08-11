@@ -30,7 +30,7 @@ module Business
         end
 
         def name_congressperson(congressperson_id)
-            Congressperson.find_by(id: congressperson_id).txtNomeParlamentar
+            Congressperson.find_by(id: congressperson_id).txNomeParlamentar
         end
     end
 end
