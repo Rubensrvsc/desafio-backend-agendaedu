@@ -32,5 +32,10 @@ module Business
         def name_congressperson(congressperson_id)
             Congressperson.find_by(id: congressperson_id).txNomeParlamentar
         end
+
+        def graph
+            array = Congressperson.all.map { |congress| {"name": congress.txNomeParlamentar, "expense": congress.expenses.sum(:vlrLiquido).round(2)} }
+            array.sort_by { |value| -value[:expense]}[0..4]
+        end
     end
 end

@@ -29,4 +29,40 @@
 <div class="paginate_congresspeople">
     <%= paginate @congresspeople %>
 </div>
+
+
 </div>
+
+<% if @graph.present?%>
+    <div class='chart'>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+            ['Deputado', 'Valor Gasto'],
+            <% @graph.each do |d| %>
+                ["<%= d[:name] %>",  <%= d[:expense] %> ],
+            <%  end %>
+            ]);
+
+            var options = {
+            title: '5 maiores gastadores',
+            curveType: 'function',
+            legend: { position: 'bottom' }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+        </script>
+    </head>
+    <body>
+        <div id="curve_chart" style="width: 900px; height: 500px"></div>
+    </body>
+    </div>
+
+  <% end %>

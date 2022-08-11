@@ -24,6 +24,7 @@ class CongressController < ApplicationController
 
   def congress_list
     @congresspeople = repo.all_congresspeople(params[:page])
+    @graph = repo.graph
   end
 
   def congressperson_details
