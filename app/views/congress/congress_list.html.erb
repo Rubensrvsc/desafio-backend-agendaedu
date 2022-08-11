@@ -7,6 +7,9 @@
 <% end %>
 <%= render "head" %>
 
+<% if !@congresspeople.present?%>
+    <h1>Ainda não há Deputados cadastrados</h1>
+<% else %>
 <div>
 <h1>Lista de Palarmentares</h1>
 <table class="table table-striped table-bordered table-hover">
@@ -32,6 +35,8 @@
 
 
 </div>
+
+ <% end %>
 
 <% if @graph.present?%>
     <div class='chart'>
