@@ -1,5 +1,8 @@
 <%= render "head" %>
 
+<div class="name_congressperson">
+    <h3><%= @name_congressperson %></h3>
+</div>
 <div class="image_congressperson">
     <%= link_to @image do %>
         <%= image_tag "https://www.camara.leg.br/internet/deputado/bandep/#{@ide_cadastro}.jpg".freeze, class: "rounded mx-auto d-block" %>
@@ -32,7 +35,7 @@
             <td><%= expense.datEmissao  %></td>
             <td><%= expense.txtFornecedor  %></td>
             <td><%= expense.vlrLiquido  %></td>
-            <td><%= expense.urlDocumento  %></td>
+            <td><%= expense.urlDocumento.to_s  %></td>
         </tr>
         <% end %>
     </tbody>
