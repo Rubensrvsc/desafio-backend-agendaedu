@@ -10,6 +10,7 @@ class CongressController < ApplicationController
       flash[:alert] = "Já foi importado um csv"
       redirect_to action: 'index'
     elsif Congressperson.count == 0 && Expense.count == 0 && params[:csv].present?
+      dir = FileUtils.mkdir_p(Rails.root.join("public/uploads/files/"))
       ext = File.extname(params[:csv].original_filename)
       file_name = "#{SecureRandom.urlsafe_base64}#{ext}"
       path = Rails.root.join("public/uploads/files/", file_name)
