@@ -10,6 +10,8 @@ WebPack
 Kaminari
 Sidekiq
 Redis
+RSpec
+DatabaseCleaner
 ```
 
 ### Para rodar o projeto
@@ -36,6 +38,18 @@ Bundle install
 
 ```
 bundle exec rails s
+```
+
+#### Para entrar no console
+
+```
+bundle exec rails c
+```
+
+#### Rodar os testes
+
+```
+bundle exec rspec spec
 ```
 
 #### É necessário que o servidor do redis esteja instalado e para rodá-lo rode o comando
