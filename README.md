@@ -76,7 +76,7 @@ bundle exec rspec spec
 redis-server
 ```
 
-#### Também é necessário que o sidekiq também esteja rodando, para isso rode
+#### Também é necessário que o [sidekiq](https://github.com/mperham/sidekiq) também esteja rodando, para isso rode
 
 ```
 bundle exec sidekiq
