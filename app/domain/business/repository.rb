@@ -37,5 +37,13 @@ module Business
             array = Congressperson.all.map { |congress| {"name": congress.txNomeParlamentar, "expense": congress.expenses.sum(:vlrLiquido).round(2)} }
             array.sort_by { |value| -value[:expense]}[0..4]
         end
+
+        def have_csv
+            Congressperson.count > 0 || Expense.count > 0
+        end
+
+        def not_have_csv
+            Congressperson.count == 0 && Expense.count == 0
+        end
     end
 end
