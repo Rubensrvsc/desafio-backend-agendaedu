@@ -1,24 +1,59 @@
-# README
+## Repositorio do teste de backend na Agenda Edu
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Tecnologias usadas
 
-Things you may want to cover:
+```
+Ruby
+Ruby On Rails
+Bootstrap
+WebPack
+Kaminari
+Sidekiq
+Redis
+```
 
-* Ruby version
+### Para rodar o projeto
 
-* System dependencies
+#### Clonar o projeto
 
-* Configuration
+```
+git clone https://github.com/Rubensrvsc/desafio-backend-agendaedu.git
+```
 
-* Database creation
+#### Entrar no projeto
 
-* Database initialization
+```
+cd desafio-backend-agendaedu
+```
 
-* How to run the test suite
+#### Instalar as depêndencias
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+Bundle install
+```
 
-* Deployment instructions
+#### Subir a aplicação
 
-* ...
+```
+bundle exec rails s
+```
+
+#### É necessário que o servidor do redis esteja instalado e para rodá-lo rode o comando
+
+```
+redis-server
+```
+
+#### Também é necessário que o sidekiq também esteja rodando, para isso rode
+
+```
+bundle exec sidekiq
+```
+
+### Funcionalidades
+
+- Subir um csv com os dados dos deputados
+- Colocar em um job para popular as tabelas
+- Ver a lista de deputados do estado do Piauí
+- Ver os 5 deputados que mais gastaram em 2021
+- Ver a lista de despesas de cada deputado do estado do Piauí
