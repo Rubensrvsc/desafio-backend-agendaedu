@@ -46,6 +46,12 @@ bundle exec rails db:create
 bundle exec rails db:migrate
 ```
 
+#### Compilar os assets
+
+```
+bundle exec rake assets:precompile
+```
+
 #### Subir a aplicação
 
 ```
