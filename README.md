@@ -34,6 +34,18 @@ cd desafio-backend-agendaedu
 Bundle install
 ```
 
+#### Criar o Banco de dados
+
+```
+bundle exec rails db:create
+```
+
+#### Executar as migrações
+
+```
+bundle exec rails db:migrate
+```
+
 #### Subir a aplicação
 
 ```
@@ -52,7 +64,7 @@ bundle exec rails c
 bundle exec rspec spec
 ```
 
-#### É necessário que o servidor do redis esteja instalado e para rodá-lo rode o comando
+#### É necessário que o servidor do [redis](https://redis.io/docs/getting-started/installation/install-redis-on-linux/) esteja instalado e para rodá-lo rode o comando
 
 ```
 redis-server
@@ -67,7 +79,9 @@ bundle exec sidekiq
 ### Funcionalidades
 
 - Subir um csv com os dados dos deputados
+  - Caso já tenha dados nas tabelas do banco de dados não é possível gravar dados no banco de dados
 - Colocar em um job para popular as tabelas
 - Ver a lista de deputados do estado do Piauí
 - Ver os 5 deputados que mais gastaram em 2021
 - Ver a lista de despesas de cada deputado do estado do Piauí
+- Ver o somatório de despesa e a maior despesa de um deputado
