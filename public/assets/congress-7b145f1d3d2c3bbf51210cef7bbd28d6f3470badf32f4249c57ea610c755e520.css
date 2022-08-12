@@ -1,0 +1,44 @@
+/* line 5, app/assets/stylesheets/congress.scss */
+.form_csv {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+}
+
+/* line 14, app/assets/stylesheets/congress.scss */
+.paginate_congresspeople {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 20, app/assets/stylesheets/congress.scss */
+.name_congressperson {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 26, app/assets/stylesheets/congress.scss */
+.chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 32, app/assets/stylesheets/congress.scss */
+.card_despesas {
+  position: relative;
+  margin-top: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 40, app/assets/stylesheets/congress.scss */
+h1 {
+  text-align: center;
+}
